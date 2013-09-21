@@ -1,0 +1,12 @@
+{application, bloomerl,
+ [
+  {description, "Pure erlang bloom filter"},
+  {vsn, "1"},
+  {registered, []},
+  {applications, [
+                  kernel,
+                  stdlib
+                 ]},
+  {mod, { bloomerl_app, []}},
+  {env, []}
+ ]}.
