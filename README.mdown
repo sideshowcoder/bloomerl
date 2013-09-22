@@ -1,0 +1,13 @@
+Bloomerl
+========
+
+This is an example and learning project on how to get started with rebar, eunit and
+erlang. There is not much to see here, yet. The goal is to get a pure erland
+implementation of bloom filters. This has been done before, and is nothing
+noteworthy but the goal is also to keep this as close to idomatic erlang, as far
+as I know.
+
+So far the outside API is done, but the algorithm not implemented.
+
+
+
