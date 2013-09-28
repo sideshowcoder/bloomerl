@@ -21,13 +21,13 @@ includes(Item) ->
 
 %% gen_server callbacks
 init([]) ->
-    {ok, []}.
+    {ok, boolean_list_with_length(128)}.
 
 handle_call({add, Item}, _From, State) ->
-    {reply, {ok}, [Item|State]};
+    {reply, {ok}, hash_calculator:add(Item, State)};
 
 handle_call({includes, Item}, _From, State) ->
-    {reply, {ok, lists:member(Item, State)}, State};
+    {reply, {ok, hash_calculator:includes(Item, State)}, State};
 
 handle_call(_Request, _From, State) ->
     {reply, ignored, State}.
@@ -43,4 +43,8 @@ terminate(_Reason, _State) ->
 
 code_change(_OldVsn, State, _Extra) ->
     {ok, State}.
+
+%% internal
+boolean_list_with_length(N) ->
+    lists:map(fun(_) -> false end, lists:seq(1, N)).
 

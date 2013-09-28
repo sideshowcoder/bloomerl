@@ -5,17 +5,17 @@
 add_test() ->
     ?assertMatch(
        {_, {ok}, _},
-       bloomerl_app_server:handle_call({add, 1}, self(), [])
+       bloomerl_app_server:handle_call({add, 17}, self(), [false, false])
       ).
 
 includes_test() ->
-    StateWithOne = [1],
+    WithSeventeen = [false, true],
     ?assertMatch(
        {_, {ok, true}, _},
-       bloomerl_app_server:handle_call({includes, 1}, self(), StateWithOne)
+       bloomerl_app_server:handle_call({includes, 17}, self(), WithSeventeen)
       ),
     ?assertMatch(
        {_, {ok, false}, _},
-       bloomerl_app_server:handle_call({includes, 2}, self(), StateWithOne)
+       bloomerl_app_server:handle_call({includes, 15}, self(), WithSeventeen)
       ).
 
