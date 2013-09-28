@@ -7,7 +7,31 @@ implementation of bloom filters. This has been done before, and is nothing
 noteworthy but the goal is also to keep this as close to idomatic erlang, as far
 as I know.
 
-So far the outside API is done, but the algorithm not implemented.
+Installation
+------------
+Clone and compile
+
+        $ git clone https://github.com/sideshowcoder/bloomerl
+        $ cd bloomerl
+        $ ./rebar compile
+
+Have some fun
+-------------
+Run in the shell
+
+        $ erl -pa ebin -s bloomerl_app start
+        ...
+        1> bloomerl_app_server:includes(15).
+        {ok,false}
+        2> bloomerl_app_server:add(15).
+        {ok}
+        3> bloomerl_app_server:includes(15).
+        {ok,true}
+        4>
+
+License
+-------
+MIT 2013 Philipp Fehre alias @sideshowcoder, or @ischi on twitter
 
 
 
